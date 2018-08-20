@@ -1,0 +1,21 @@
+<div class="m100"></div>
+<ul id="bot_nav" class="clearfix">
+    <li class="cur"><a href="<{:url('mobile/Index/index')}>"><img src="/static/mobile/images/img_shopping.png" alt="首页"><!-- 购物 --></a></li>
+    <li><a href="<{:url('mobile/Goods/goodList')}>"><img src="/static/mobile/images/img_search.png" alt="搜索"><!-- 搜索 --></a></li>
+    <li><a href="<{:url('mobile/User/userCenter')}>"><img src="/static/mobile/images/img_person.png" alt="个人中心"><!-- 个人中心 --></a></li>
+    <li><a href="<{:url('mobile/Cart/cart')}>"><img src="/static/mobile/images/img_cart.png" alt="购物车"><!-- 购物车 --></a></li>
+    <li><a href="<{:url('mobile/SalesService/service')}>"><img src="/static/mobile/images/img_selled.png" alt="售后"><!-- 售后 --></a></li>
+</ul>
+<script>
+    //返回
+    $(".go_back").live('click',function () {
+        window.history.go(-1);
+    });
+
+    //刷新
+    function refresh() {
+        location.replace(location.href);
+    }
+</script>
+</body>
+</html>

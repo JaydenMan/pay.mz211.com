@@ -1,0 +1,56 @@
+<{extend name="public/_blank" /}>
+<{block name="body"}>
+<article class="page-container">
+	<form action="" method="get" class="form form-horizontal" id="form-article-add">
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>所属规格：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<label><{$specInfo.name}></label>
+				<input type="hidden" name="spec_id" value="<{$specInfo.id}>" >
+			</div>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>规格列表：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<textarea name="item" cols="" rows="" class="textarea" placeholder="规格列表 (一行一个)" datatype="*10-100" dragonfly="true" nullmsg="不能为空！"><{$text}></textarea>
+			</div>
+		</div>
+		<div class="row cl">
+			<div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3">
+				<button onClick="return form_submit();" class="btn btn-primary radius" type="submit"><i class="Hui-iconfont">&#xe632;</i> 提交</button>
+			</div>
+		</div>
+	</form>
+</article>
+<{/block}>
+<{block name="script"}>
+<script>
+    function form_submit()
+    {
+        spec_id = $("input[name='spec_id']").val();
+        item = $("textarea[name='item']").val();
+        if(spec_id.trim() == "" ) {
+            layer.msg('操作有误!',{icon:2,time:1000});
+            return false;
+        }
+        if(item.trim() == "" ) {
+            layer.msg('请输入规格列表!',{icon:2,time:1000});
+            return false;
+        }
+        $.ajax({
+            type: "GET",
+            url: "<{:url('admin/Goods/specItemSave','','')}>"+'?'+$("#form-article-add").serialize(),
+            data: {},
+            dataType: "json",
+            success: function(json){
+                if(json.code == 0){
+                    layer.msg('操作成功',{icon:1,time:1000});
+					setTimeout(function () {parentReload();},10);
+                } else {
+                    layer.msg('操作失败',{icon:2,time:1000});
+                }
+            }
+        });
+    }
+</script>
+<{/block}>

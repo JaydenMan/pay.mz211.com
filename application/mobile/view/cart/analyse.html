@@ -1,0 +1,57 @@
+<{include file="common/_header" /}>
+<body class="font">
+<div id="top" class="white pos_rel"><h2 class="txt_c f36 white_gray">订单确认</h2><span class="top_back pos_abs f32"><a class="go_back white">返回</a></span><a class="top_set pos_abs" href="<{:url('mobile/Goods/category')}>"></a></div>
+<form id="submit_form" action="<{:url('mobile/Cart/analyse',['from'=>$pay.from])}>" method="get">
+	<div class="bs_address">
+		收货人：<span><{$pay.address.consignee}></span><br>
+		地址：<span><{$map[$pay.address.province]}><{$map[$pay.address.city]}><{$map[$pay.address.district]}> <{$pay.address.address}></span><br>
+		留言：<span><label>留言:<input type="text" name="note"></label></span><br>
+	<!--<a href="#" class="edit">编辑</a>-->
+	<input type="hidden" name="address_id" value="<{$pay.address.address_id}>">
+	<{eq name="$pay.from" value="buy_now"}>
+		<input type="hidden" name="goods_id" value="<{$pay.payList.0.goods_id}>">
+		<input type="hidden" name="item_id" value="<{$pay.payList.0.item_id}>">
+		<input type="hidden" name="goods_num" value="<{$pay.payList.0.goods_num}>">
+	<{/eq}>
+	<input type="hidden" name="action" value="submit">
+</div>
+
+<div class="box_shadow_bot2 mb16 bgc_white bs_carts">
+	<div class="bs_name bor_bot_gray"></div>
+	<{volist name="pay.payList" id="vo"}>
+	<div class="bs_wapper pos_rel bor_bot_gray">
+		<div class="right_wrapper pos_rel">
+			<div class="img_wrapper"><img src="/static/mobile/images/none/pro_default.jpg" alt="图片" class="full_img"></div>
+			<div class="img_info">
+				<h3><{$vo.goods_name}></h3>
+				<div class="price red">￥<span><{$vo.goods_price}></span>  数量:<{$vo.goods_num}></div>
+				<div class="price"><span><{$vo.spec_key_name}></span></div>
+			</div>
+		</div>
+		<{/volist}>
+	</div>
+</div>
+<div class="m100"></div>
+<div class="billing bor_top_gray">
+	<div class="clearfix inner">
+		<div class="fr txt_r">
+			共<span class="red"><{$pay.totalCount}></span>件 支付:<span class="red">￥<span class="price"><{$pay.finalFee}></span></span>
+			<a href="#" class="billing_btn">提交订单</a>
+		</div>
+	</div>
+</div>
+</form>
+
+<script type="text/javascript">
+
+    //返回
+    $(".go_back").live('click',function () {
+        window.history.go(-1);
+    });
+
+    $(".billing_btn").one('click',function () {
+		$("#submit_form").submit();
+    });
+</script>
+</body>
+</html>

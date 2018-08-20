@@ -1,0 +1,69 @@
+<{include file="common/_header" /}>
+<style>
+	/*左右固定，中间自适应*/
+	/*Start*/
+	.address_list{
+		width: 100%;
+		height: 100%;
+		border: 1px solid #ff6600;
+		position: relative;
+	}
+	.left{
+		position: absolute;
+		left: 0;
+		top: 0;
+		width: 20%;
+		height: 70px;
+		/*background-color: black;*/
+	}
+	.center{
+		width: auto;    /*如果没有这一句，那么，center这个div的文字就不会自动换行*/
+		margin: 0 20%;
+		height: 70px;
+		/*background-color: yellow;*/
+	}
+	.right{
+		position: absolute;
+		top: 0;
+		right: 0;
+		width: 20%;
+		height: 70px;
+		/*background-color: red;*/
+	}
+
+</style>
+
+<body class="font">
+<div id="top" class="white pos_rel">
+	<h2 class="txt_c f36 white_gray"><{$title}></h2>
+	<span class="top_back pos_abs f32">
+        <a class="go_back white">返回</a>
+    </span>
+	<a class="top_set pos_abs" href="<{:url('mobile/Goods/category')}>"></a>
+</div>
+
+<{volist name="list" id="vo"}>
+	<div class="address_list">
+		<div class="left">
+			<span><{$vo.consignee}></span><br>
+			<span style="color: #2445f2;"><{eq name="$vo.is_default" value="1"}>默认<{/eq}></span>
+		</div>
+		<div class="center">
+			手机号码：<span><{$vo.mobile}></span><br>
+			地址：<{neq name="vo.province" value="0"}><{$region[$vo.province]}><{/neq}> <{neq name="vo.city" value="0"}><{$region[$vo.city]}><{/neq}> <{neq name="vo.district" value="0"}><{$region[$vo.district]}><{/neq}> <{$vo.address}><br>
+		</div>
+		<div class="right">
+			<a href="<{:url('mobile/User/addAddress',['id'=>$vo.address_id])}>"><span>编辑</span></a><br>
+		</div>
+	</div>
+<{/volist}>
+<div class="login">
+<input type="button" class="btn_submit mt10" style="position: fixed;bottom:10px;left:0;" value="增加新地址" onclick="location.href='<{:url('mobile/User/addAddress')}>'">
+</div>
+</body>
+<script>
+    $(".go_back").live('click',function () {
+        window.history.go(-1);
+    });
+</script>
+</html>

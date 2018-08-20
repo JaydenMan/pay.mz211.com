@@ -1,0 +1,589 @@
+[ 2018-08-20T11:13:52+08:00 ] 127.0.0.1 127.0.0.1 GET /admin
+[ log ] pay.mz211.jcai/admin [运行时间：0.510029s][吞吐率：1.96req/s] [内存消耗：3,224.91kb] [文件加载：52]
+[ info ] [ LANG ] E:\shopweb\pay.mz211.com\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'pay.mz211.jcai',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'pgv_pvi=9600733184; Hm_lvt_080836300300be57b7f34f4b3e97d911=1533366196,1533472488',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'admin',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2018-08-20T11:13:52+08:00 ] 127.0.0.1 127.0.0.1 GET /admin/Login/login.html
+[ log ] pay.mz211.jcai/admin/Login/login.html [运行时间：0.131007s][吞吐率：7.63req/s] [内存消耗：3,186.30kb] [文件加载：50]
+[ info ] [ LANG ] E:\shopweb\pay.mz211.com\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'Login',
+    2 => 'login',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'pay.mz211.jcai',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'pgv_pvi=9600733184; Hm_lvt_080836300300be57b7f34f4b3e97d911=1533366196,1533472488; PHPSESSID=sgb2mp66vkv4k6c1hi13ukj6i0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\admin\controller\Login->login[ E:\shopweb\pay.mz211.com\application\admin\controller\Login.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'admin',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ VIEW ] E:\shopweb\pay.mz211.com/application/admin\view\login\login.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2018-08-20T11:13:57+08:00 ] 127.0.0.1 127.0.0.1 POST /admin/Login/doLogin.html
+[ log ] pay.mz211.jcai/admin/Login/doLogin.html [运行时间：0.084005s][吞吐率：11.90req/s] [内存消耗：3,222.02kb] [文件加载：51]
+[ info ] [ LANG ] E:\shopweb\pay.mz211.com\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'Login',
+    2 => 'doLogin',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'pay.mz211.jcai',
+  'connection' => 'keep-alive',
+  'content-length' => '29',
+  'cache-control' => 'max-age=0',
+  'origin' => 'http://pay.mz211.jcai',
+  'upgrade-insecure-requests' => '1',
+  'content-type' => 'application/x-www-form-urlencoded',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://pay.mz211.jcai/admin/Login/login.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'pgv_pvi=9600733184; Hm_lvt_080836300300be57b7f34f4b3e97d911=1533366196,1533472488; PHPSESSID=sgb2mp66vkv4k6c1hi13ukj6i0',
+)
+[ info ] [ PARAM ] array (
+  'passport' => 'admin',
+  'password' => 'admin',
+)
+[ info ] [ RUN ] app\admin\controller\Login->doLogin[ E:\shopweb\pay.mz211.com\application\admin\controller\Login.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'admin',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2018-08-20T11:13:57+08:00 ] 127.0.0.1 127.0.0.1 GET /admin/Index/index.html
+[ log ] pay.mz211.jcai/admin/Index/index.html [运行时间：0.117006s][吞吐率：8.55req/s] [内存消耗：3,194.95kb] [文件加载：51]
+[ info ] [ LANG ] E:\shopweb\pay.mz211.com\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'Index',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'pay.mz211.jcai',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://pay.mz211.jcai/admin/Login/login.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'pgv_pvi=9600733184; Hm_lvt_080836300300be57b7f34f4b3e97d911=1533366196,1533472488; PHPSESSID=sgb2mp66vkv4k6c1hi13ukj6i0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'admin',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\Index->index[ E:\shopweb\pay.mz211.com\application\admin\controller\Index.php ]
+[ info ] [ VIEW ] E:\shopweb\pay.mz211.com/application/admin\view\index\index.html [ array (
+  0 => 'adminUser',
+) ]
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2018-08-20T11:13:57+08:00 ] 127.0.0.1 127.0.0.1 GET /admin/Open/welcome.html
+[ log ] pay.mz211.jcai/admin/Open/welcome.html [运行时间：0.100006s][吞吐率：10.00req/s] [内存消耗：3,064.48kb] [文件加载：49]
+[ info ] [ LANG ] E:\shopweb\pay.mz211.com\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'Open',
+    2 => 'welcome',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'pay.mz211.jcai',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://pay.mz211.jcai/admin/Index/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'pgv_pvi=9600733184; Hm_lvt_080836300300be57b7f34f4b3e97d911=1533366196,1533472488; PHPSESSID=sgb2mp66vkv4k6c1hi13ukj6i0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\admin\controller\Open->welcome[ E:\shopweb\pay.mz211.com\application\admin\controller\Open.php ]
+[ info ] [ VIEW ] E:\shopweb\pay.mz211.com/application/admin\view\open\welcome.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2018-08-20T11:14:01+08:00 ] 127.0.0.1 127.0.0.1 GET /admin/Goods/goodsTypeSpecList.html
+[ log ] pay.mz211.jcai/admin/Goods/goodsTypeSpecList.html [运行时间：1.218070s][吞吐率：0.82req/s] [内存消耗：4,615.26kb] [文件加载：58]
+[ info ] [ LANG ] E:\shopweb\pay.mz211.com\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'Goods',
+    2 => 'goodsTypeSpecList',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'pay.mz211.jcai',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://pay.mz211.jcai/admin/Index/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'pgv_pvi=9600733184; Hm_lvt_080836300300be57b7f34f4b3e97d911=1533366196,1533472488; PHPSESSID=sgb2mp66vkv4k6c1hi13ukj6i0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'admin',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\Goods->goodsTypeSpecList[ E:\shopweb\pay.mz211.com\application\admin\controller\Goods.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] E:\shopweb\pay.mz211.com/application/admin\view\goods\goodsTypeSpecList.html [ array (
+  0 => 'goodsTypeList',
+  1 => 'list',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.502029s ] mysql:dbname=imall;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `i_goods_type` [ RunTime:0.379022s ]
+[ sql ] [ SQL ] SELECT * FROM `i_goods_type` [ RunTime:0.095006s ]
+
+---------------------------------------------------------------
+[ 2018-08-20T11:14:03+08:00 ] 127.0.0.1 127.0.0.1 GET /admin/Goods/goodsList.html
+[ log ] pay.mz211.jcai/admin/Goods/goodsList.html [运行时间：0.758043s][吞吐率：1.32req/s] [内存消耗：5,278.09kb] [文件加载：61]
+[ info ] [ LANG ] E:\shopweb\pay.mz211.com\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'Goods',
+    2 => 'goodsList',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'pay.mz211.jcai',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://pay.mz211.jcai/admin/Index/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'pgv_pvi=9600733184; Hm_lvt_080836300300be57b7f34f4b3e97d911=1533366196,1533472488; PHPSESSID=sgb2mp66vkv4k6c1hi13ukj6i0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'admin',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\Goods->goodsList[ E:\shopweb\pay.mz211.com\application\admin\controller\Goods.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] E:\shopweb\pay.mz211.com/application/admin\view\goods\goodsList.html [ array (
+  0 => 'cateList',
+  1 => 'goodsList',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.036002s ] mysql:dbname=imall;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `i_goods` [ RunTime:0.151009s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `i_goods` LIMIT 1 [ RunTime:0.153009s ]
+[ sql ] [ SQL ] SELECT * FROM `i_goods` ORDER BY `on_time`  desc,`is_on_sale`  desc LIMIT 0,20 [ RunTime:0.042003s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `i_goods_category` [ RunTime:0.047003s ]
+[ sql ] [ SQL ] SELECT * FROM `i_goods_category` WHERE  `level` = 2 [ RunTime:0.042002s ]
+
+---------------------------------------------------------------
+[ 2018-08-20T11:14:09+08:00 ] 127.0.0.1 127.0.0.1 GET /admin/Goods/goodsAdd.html
+[ log ] pay.mz211.jcai/admin/Goods/goodsAdd.html [运行时间：0.292016s][吞吐率：3.42req/s] [内存消耗：5,724.43kb] [文件加载：60]
+[ info ] [ LANG ] E:\shopweb\pay.mz211.com\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'Goods',
+    2 => 'goodsAdd',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'pay.mz211.jcai',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://pay.mz211.jcai/admin/Goods/goodsList.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'pgv_pvi=9600733184; Hm_lvt_080836300300be57b7f34f4b3e97d911=1533366196,1533472488; PHPSESSID=sgb2mp66vkv4k6c1hi13ukj6i0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'admin',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\Goods->goodsAdd[ E:\shopweb\pay.mz211.com\application\admin\controller\Goods.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] E:\shopweb\pay.mz211.com/application/admin\view\goods\goodsAdd.html [ array (
+  0 => 'cateList',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.033002s ] mysql:dbname=imall;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `i_goods_category` [ RunTime:0.087005s ]
+[ sql ] [ SQL ] SELECT * FROM `i_goods_category` [ RunTime:0.011000s ]
+
+---------------------------------------------------------------
+[ 2018-08-20T11:20:26+08:00 ] 127.0.0.1 127.0.0.1 GET /admin/Cache/clear.html
+[ log ] pay.mz211.jcai/admin/Cache/clear.html [运行时间：0.085005s][吞吐率：11.76req/s] [内存消耗：3,119.23kb] [文件加载：50]
+[ info ] [ LANG ] E:\shopweb\pay.mz211.com\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'Cache',
+    2 => 'clear',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'pay.mz211.jcai',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://pay.mz211.jcai/admin/Index/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'pgv_pvi=9600733184; Hm_lvt_080836300300be57b7f34f4b3e97d911=1533366196,1533472488; PHPSESSID=sgb2mp66vkv4k6c1hi13ukj6i0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\admin\controller\Cache->clear[ E:\shopweb\pay.mz211.com\application\admin\controller\Cache.php ]
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2018-08-20T11:20:26+08:00 ] 127.0.0.1 127.0.0.1 GET /admin/Index/index.html
+[ log ] pay.mz211.jcai/admin/Index/index.html [运行时间：0.073004s][吞吐率：13.70req/s] [内存消耗：3,194.46kb] [文件加载：51]
+[ info ] [ LANG ] E:\shopweb\pay.mz211.com\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'Index',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'pay.mz211.jcai',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://pay.mz211.jcai/admin/Index/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'pgv_pvi=9600733184; Hm_lvt_080836300300be57b7f34f4b3e97d911=1533366196,1533472488; PHPSESSID=sgb2mp66vkv4k6c1hi13ukj6i0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'admin',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\Index->index[ E:\shopweb\pay.mz211.com\application\admin\controller\Index.php ]
+[ info ] [ VIEW ] E:\shopweb\pay.mz211.com/application/admin\view\index\index.html [ array (
+  0 => 'adminUser',
+) ]
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2018-08-20T11:20:27+08:00 ] 127.0.0.1 127.0.0.1 GET /admin/Open/welcome.html
+[ log ] pay.mz211.jcai/admin/Open/welcome.html [运行时间：0.063003s][吞吐率：15.87req/s] [内存消耗：3,064.48kb] [文件加载：49]
+[ info ] [ LANG ] E:\shopweb\pay.mz211.com\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'Open',
+    2 => 'welcome',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'pay.mz211.jcai',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://pay.mz211.jcai/admin/Index/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'pgv_pvi=9600733184; Hm_lvt_080836300300be57b7f34f4b3e97d911=1533366196,1533472488; PHPSESSID=sgb2mp66vkv4k6c1hi13ukj6i0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\admin\controller\Open->welcome[ E:\shopweb\pay.mz211.com\application\admin\controller\Open.php ]
+[ info ] [ VIEW ] E:\shopweb\pay.mz211.com/application/admin\view\open\welcome.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2018-08-20T11:20:29+08:00 ] 127.0.0.1 127.0.0.1 GET /admin/Goods/goodsList.html
+[ log ] pay.mz211.jcai/admin/Goods/goodsList.html [运行时间：0.257015s][吞吐率：3.89req/s] [内存消耗：5,278.09kb] [文件加载：61]
+[ info ] [ LANG ] E:\shopweb\pay.mz211.com\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'Goods',
+    2 => 'goodsList',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'pay.mz211.jcai',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://pay.mz211.jcai/admin/Index/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'pgv_pvi=9600733184; Hm_lvt_080836300300be57b7f34f4b3e97d911=1533366196,1533472488; PHPSESSID=sgb2mp66vkv4k6c1hi13ukj6i0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'admin',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\Goods->goodsList[ E:\shopweb\pay.mz211.com\application\admin\controller\Goods.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] E:\shopweb\pay.mz211.com/application/admin\view\goods\goodsList.html [ array (
+  0 => 'cateList',
+  1 => 'goodsList',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.014001s ] mysql:dbname=imall;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `i_goods` [ RunTime:0.059003s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `i_goods` LIMIT 1 [ RunTime:0.007000s ]
+[ sql ] [ SQL ] SELECT * FROM `i_goods` ORDER BY `on_time`  desc,`is_on_sale`  desc LIMIT 0,20 [ RunTime:0.010001s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `i_goods_category` [ RunTime:0.012001s ]
+[ sql ] [ SQL ] SELECT * FROM `i_goods_category` WHERE  `level` = 2 [ RunTime:0.019001s ]
+
+---------------------------------------------------------------
+[ 2018-08-20T11:20:44+08:00 ] 127.0.0.1 127.0.0.1 GET /admin/Goods/goodsList.html?cat_id=&is_on_sale=&other=&goods_name=
+[ log ] pay.mz211.jcai/admin/Goods/goodsList.html?cat_id=&is_on_sale=&other=&goods_name= [运行时间：0.220012s][吞吐率：4.55req/s] [内存消耗：5,279.88kb] [文件加载：61]
+[ info ] [ LANG ] E:\shopweb\pay.mz211.com\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'Goods',
+    2 => 'goodsList',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'pay.mz211.jcai',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://pay.mz211.jcai/admin/Goods/goodsList.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'pgv_pvi=9600733184; Hm_lvt_080836300300be57b7f34f4b3e97d911=1533366196,1533472488; PHPSESSID=sgb2mp66vkv4k6c1hi13ukj6i0',
+)
+[ info ] [ PARAM ] array (
+  'cat_id' => '',
+  'is_on_sale' => '',
+  'other' => '',
+  'goods_name' => '',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'admin',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\Goods->goodsList[ E:\shopweb\pay.mz211.com\application\admin\controller\Goods.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] E:\shopweb\pay.mz211.com/application/admin\view\goods\goodsList.html [ array (
+  0 => 'cateList',
+  1 => 'goodsList',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001000s ] mysql:dbname=imall;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `i_goods` [ RunTime:0.016001s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `i_goods` LIMIT 1 [ RunTime:0.008000s ]
+[ sql ] [ SQL ] SELECT * FROM `i_goods` ORDER BY `on_time`  desc,`is_on_sale`  desc LIMIT 0,20 [ RunTime:0.007001s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `i_goods_category` [ RunTime:0.018001s ]
+[ sql ] [ SQL ] SELECT * FROM `i_goods_category` WHERE  `level` = 2 [ RunTime:0.006000s ]
+
+---------------------------------------------------------------
+[ 2018-08-20T11:21:33+08:00 ] 127.0.0.1 127.0.0.1 GET /admin/Login/logout.html
+[ log ] pay.mz211.jcai/admin/Login/logout.html [运行时间：0.088005s][吞吐率：11.36req/s] [内存消耗：3,219.58kb] [文件加载：51]
+[ info ] [ LANG ] E:\shopweb\pay.mz211.com\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'Login',
+    2 => 'logout',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'pay.mz211.jcai',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://pay.mz211.jcai/admin/Index/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'pgv_pvi=9600733184; Hm_lvt_080836300300be57b7f34f4b3e97d911=1533366196,1533472488; PHPSESSID=sgb2mp66vkv4k6c1hi13ukj6i0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\admin\controller\Login->logout[ E:\shopweb\pay.mz211.com\application\admin\controller\Login.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'admin',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2018-08-20T11:21:33+08:00 ] 127.0.0.1 127.0.0.1 GET /admin/Login/login.html
+[ log ] pay.mz211.jcai/admin/Login/login.html [运行时间：0.062004s][吞吐率：16.13req/s] [内存消耗：3,186.47kb] [文件加载：50]
+[ info ] [ LANG ] E:\shopweb\pay.mz211.com\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'Login',
+    2 => 'login',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'pay.mz211.jcai',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://pay.mz211.jcai/admin/Index/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'pgv_pvi=9600733184; Hm_lvt_080836300300be57b7f34f4b3e97d911=1533366196,1533472488; PHPSESSID=sgb2mp66vkv4k6c1hi13ukj6i0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\admin\controller\Login->login[ E:\shopweb\pay.mz211.com\application\admin\controller\Login.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'admin',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ VIEW ] E:\shopweb\pay.mz211.com/application/admin\view\login\login.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------

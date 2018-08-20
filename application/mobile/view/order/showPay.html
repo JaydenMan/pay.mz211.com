@@ -1,0 +1,52 @@
+<{include file="common/_header" /}>
+<style>
+    input[type="radio"] {
+        -webkit-appearance: radio;
+        width: 10%;
+        height: 30px;
+        font-size: 18px;
+        border: 1px solid #1dceba;
+        border-radius: 5px;
+        margin: 0;
+        padding: 0;
+    }
+</style>
+<body class="font">
+<!-- 头部 -->
+<div id="top" class="white pos_rel"><h2 class="txt_c f36 white_gray">待支付</h2><span class="top_back pos_abs f32"><a
+        class="go_back white">返回</a><a class="close ml10 white">关闭</a></span><a class="top_set pos_abs" href="#"></a>
+</div>
+<form id="submit_form" action="<{:url('mobile/Payment/pay')}>" method="POST">
+    <div class="box_shadow_bot2 mb16 bgc_white box_shop">
+        <div>
+            <div>
+                <input type="hidden" name="id" value="<{$order.order_id}>">
+                订单号:<span style="font-size: 16px;"><{$order.order_sn}></span><br>
+                应支付:￥<span style="font-size: 16px;"><{$order.order_amount}> 元</span>
+            </div>
+            <hr>
+            <div>
+                <div style="font-size: 16px;">选择支付方式：</div>
+                <{volist name="wayList" id="vo" key="key"}>
+                <div><label><input type="radio" name="pay_code" value="<{$vo.pay_code}>" <{eq name="key" value="1"}>checked="checked"<{/eq}>><img src="/static/mobile/images/payment/<{$vo.pay_code}>.jpg" style="width: 30px;height: 30px;">&nbsp;&nbsp;<{$vo.pay_name}></label></div>
+                <{/volist}>
+            </div>
+            <div class="txt_r shop_btn"><a class="btn red_btn">确认支付</a></div>
+        </div>
+    </div>
+</form>
+<script>
+    //只触发一次 : one()
+    $(".shop_btn .red_btn").live('click', function () {
+        pay_code = $("input[name='pay_code']:checked").val();
+        if(pay_code == undefined){
+            alert('请选择支付方式');
+            return false;
+        }
+        $(this).removeClass('red_btn');
+        $("#submit_form").submit();
+    });
+
+</script>
+</body>
+</html>

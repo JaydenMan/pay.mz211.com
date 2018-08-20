@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>商城入口</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/static/mobile/css/style.css">
+    <style>
+        .entry_main{
+            /*text-align: center;*/
+            /*margin: 100px  auto;*/
+            position:fixed;
+            top:40%;
+            left:40%;
+            background-color: #1dceba;
+        }
+        .entry_main ul{
+
+        }
+    </style>
+    <script>
+        function toLogin(way)
+        {
+            url = '/oauth/'+way;
+            redirect = document.getElementById("redirect").value;
+            if(redirect != '') url += '?redirect_uri='+redirect;
+            top.location.href = url;
+        }
+    </script>
+</head>
+<body class="font">
+<!-- 头部 -->
+<div id="top" class="white pos_rel"><h2 class="txt_c f36 white_gray">商城入口</h2><span class="top_back pos_abs f32"></span></div>
+<div class="entry_main">
+    <ul>
+        <input type="hidden" id="redirect" value="<{$redirect_uri}>">
+        <li><img src="/static/mobile/images/qq.png" onclick="toLogin('qq')" style="width: 80px;height:50px "></li>
+    </ul>
+</div>
+</body>
+</html>

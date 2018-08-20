@@ -1,0 +1,130 @@
+<{include file="common/_header" /}>
+
+<style type="text/css">
+	/*.address_form{*/
+		/*font-size: 2rem;*/
+		/*line-height : 3rem;*/
+	/*}*/
+	/*.address_form input{*/
+		/*font-size: 2rem;*/
+		/*height: 2.6rem;*/
+		/*line-height : 3rem;*/
+	/*}*/
+	/*.address_form .btn_submit{*/
+		/*margin: 0 auto;*/
+		/*text-align: center;*/
+	/*}*/
+
+	* {
+		margin: 0;
+		padding: 0;
+		-webkit-appearance: none; //去掉浏览器默认样式
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+		-webkit-touch-callout: none;
+		box-sizing: border-box;
+	}
+
+	html,
+	body {
+		margin: 0 auto;
+		width: 100%;
+		min-height: 100%;
+		overflow-x: hidden;
+		-webkit-user-select: none;
+	}
+
+	body {
+		font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+		-webkit-text-size-adjust: 100%; //关闭自动调整字体
+	-webkit-overflow-scrolling: touch;
+		overflow-scrolling: touch;
+	}
+
+	input {
+		width: 90%;
+		height: 40px;
+		font-size: 18px;
+		border: 1px solid #1dceba;
+		border-radius: 5px;
+		margin: 20px 5% 0 5%;
+		padding: 5px;
+	}
+
+	input[type="radio"]{
+		-webkit-appearance: radio;
+		width: 20%;
+		height: 30px;
+		font-size: 18px;
+		border: 1px solid #1dceba;
+		border-radius: 5px;
+		margin: 0;
+		padding: 0;
+	}
+</style>
+<link rel="stylesheet" href="/static/mobile/plugin/LArea/css/LArea.css">
+<body class="font">
+<!-- 头部 -->
+<div id="top" class="white pos_rel">
+	<h2 class="txt_c f36 white_gray"><{$title}></h2>
+	<span class="top_back pos_abs f32">
+        <a class="go_back white">返回</a>
+    </span>
+	<a class="top_set pos_abs" href="<{:url('mobile/Goods/category')}>"></a>
+</div>
+<form action="<{:url('mobile/User/saveAddress')}>" method="POST" class="address_form">
+	<hr>
+	<input type="hidden" name="id" value="<{$userAddress.address_id ?? ''}>">
+	<label>收货人：<input type="text" name="consignee" value="<{$userAddress.consignee ?? ''}>"></label><br>
+	<label>手机号码：<input type="text" name="mobile" value="<{$userAddress.mobile ?? ''}>"></label><br>
+	地区：
+	<div class="content-block">
+		<input id="demo1" type="text" readonly="" value="广东省,广州市,天河区">
+		<input id="value1" name="pcd" type="hidden" value="28240,28241,28308">
+	</div><br>
+	<label>详细地址：<input type="text" name="address" value="<{$userAddress.address ?? ''}>"></label><br>
+	设为默认：
+		<input class="radio" type="radio" name="is_default" value="1" checked="checked"> 是
+		<input class="radio" type="radio" name="is_default" value="0"> 否
+	<br><br>
+	<div class="btn_submit"><input type="submit" value="保存"></div>
+</form>
+</body>
+<script src="/static/mobile/plugin/LArea/js/LAreaData1.js"></script>
+<!--<script src="/static/mobile/plugin/LArea/js/LAreaData2.js"></script>-->
+<!--<script src="<{:url('mobile/Api/regionTree')}>"></script>-->
+<script src="/static/mobile/plugin/LArea/js/LArea.js"></script>
+<script>
+	$(function () {
+        var area1 = new LArea();
+        area1.init({
+            'trigger': '#demo1', //触发选择控件的文本框，同时选择完毕后name属性输出到该位置
+            'valueTo': '#value1', //选择完毕后id属性输出到该位置
+            'keys': {
+                id: 'id',
+                name: 'name'
+            }, //绑定数据源相关字段 id对应valueTo的value属性输出 name对应trigger的value属性输出
+            'type': 1, //数据源类型
+            'data': LAreaData //数据源
+        });
+        area1.value=[18,0,4];//控制初始位置，注意：该方法并不会影响到input的value
+
+//        var area2 = new LArea();
+//        area2.init({
+//            'trigger': '#demo2',
+//            'valueTo': '#value2',
+//            'keys': {
+//                id: 'value',
+//                name: 'text'
+//            },
+//            'type': 2,
+//            'data': [provs_data, citys_data, dists_data]
+//        });
+
+
+    });
+
+    $(".go_back").live('click',function () {
+        window.history.go(-1);
+    });
+</script>
+</html>

@@ -1,0 +1,43 @@
+<{include file="common/_header" /}>
+<body class="font">
+<!-- 头部 -->
+<div id="top" class="white pos_rel"><h2 class="txt_c f36 white_gray">待收货</h2><span class="top_back pos_abs f32"><a class="go_back white">返回</a><a class="close ml10 white">关闭</a></span><a class="top_set pos_abs" href="#"></a></div>
+<!-- 未支付列表 -->
+<div class="box_shadow_bot2 mb16 bgc_white box_shop">
+	<{volist name="orderList" id="vo"}>
+	<div>
+		<div class="shop_name bor_bot_gray">
+			<i class="icon_img"><img src="/static/mobile/images/none/icon_shop.jpg" class="full_img"></i><span style="font-size: 10px;">订单号:<{$vo.order_sn}></span><i class="iconfont arrow">&#xe621;</i>
+		</div>
+		<{volist name="vo.orderGoods" id="voo"}>
+		<div class="box_commodity">
+			<ul>
+				<li class="left_wrapper pos_rel">
+					<div class="commo_img"><a href="#"><img src="/static/mobile/images/none/pro_default.jpg" alt="图片" class="full_img"></a></div>
+					<div class="commo_info"><a href="#"><{$voo.goods_name}></a></div>
+				</li>
+				<li class="price_num">
+					<div>￥<{$voo.final_price}></div>
+					<div>X<{$voo.goods_num}></div>
+				</li>
+			</ul>
+		</div>
+		<{/volist}>
+		<div class="cont txt_r bor_bot_gray">共<span><{$vo.totalCount}></span>件商品，合计：<span class="red">￥<{$vo.totalFee}></span></div>
+		<div class="txt_r shop_btn" data-id="<{$vo.order_id}>" data-order_sn="<{$vo.order_sn}>"><a class="btn red_btn">确认收货</a></div>
+	</div>
+	<{/volist}>
+	<{empty name="orderList"}><div class="shop_name bor_bot_gray">没有订单</div><{/empty}>
+</div>
+<script>
+    //只触发一次 : one()
+    $(".shop_btn .red_btn").one('click',function () {
+        shopBtn = $(this).parent(".shop_btn");
+        id = shopBtn.attr('data-id');
+        if(id.trim() != ''){
+
+        }
+    });
+
+</script>
+<{include file="common/_footer" /}>

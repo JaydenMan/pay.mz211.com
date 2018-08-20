@@ -1,0 +1,77 @@
+<{include file="common/_header" /}>
+<style>
+	.address_form{
+		font-size: 2rem;
+		line-height : 3rem;
+	}
+	.address_form input{
+		font-size: 2rem;
+		height: 2.6rem;
+		line-height : 3rem;
+	}
+	.address_form .btn_submit{
+		margin: 0 auto;
+		text-align: center;
+	}
+</style>
+<body class="font">
+<!-- 头部 -->
+<div id="top" class="white pos_rel">
+	<h2 class="txt_c f36 white_gray">{$title}</h2>
+	<span class="top_back pos_abs f32">
+        <a class="go_back white">返回</a>
+    </span>
+	<a class="top_set pos_abs" href="{:url('mobile/Goods/category')}"></a>
+</div>
+<form action="" method="{:url('mobile/User/')}" class="address_form">
+	<hr>
+	<input type="hidden" name="id" value="">
+	<input type="hidden" value="" name="province"/>
+	<input type="hidden" value="" name="city"/>
+	<input type="hidden" value="" name="district"/>
+	<label>收货人：<input type="text" name="consignee" value=""></label><br>
+	<label>手机号码：<input type="text" name="mobile" value=""></label><br>
+	<label>地区：<input type="text" name="consignee" value=""></label><br>
+	<label>详细地址：<span id="area"></span></label><br>
+	<label>设为默认：<input type="text" name="is_default" value=""></label><br><br>
+	<div class="btn_submit"><label><input type="submit" value="添加"></label></div>
+</form>
+</body>
+<script>
+    $(function () {
+        provinceObj = $("input[name='province']");
+        cityObj = $("input[name='city']");
+        districtObj = $("input[name='district']");
+        area_province = '<select id="area_province">';
+        area_district = '<select id="area_city">';
+        area_district = '<select id="area_district">';
+        if(provinceObj.val() == "" && cityObj.val() == "" && districtObj.val() == ""){
+            id = 0;
+            $.ajax({
+                type: "GET",
+                url: "{:url('mobile/api/region')}",
+                data: {id:parseInt(id)},
+                dataType: "json",
+                success: function(data){
+                    option_arr = [];
+                    if(data){
+                        $.each(data,function (key,val) {
+                            option_arr.push('<option value="'+val.id+'">'+val.name+'</option>');
+                        })
+                    }
+                    area_province += option_arr.join('');
+                    area_province += '</select>';
+                    $("#area").append(area_province);
+                },
+                error : function () {
+                    alert('error request');
+                }
+            });
+        } else {
+
+		}
+
+    });
+
+</script>
+</html>

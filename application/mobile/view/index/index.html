@@ -1,0 +1,55 @@
+<{include file="common/_header" /}>
+<body class="font" id="body">
+<div id="head" class="pos_rel">
+    <!-- 头部 -->
+    <div id="top" class="white pos_rel"><h2 class="txt_c f36 white_gray">微商城</h2><span class="top_back pos_abs f32"><a class="go_back white">返回</a></span><a class="top_set pos_abs" href="<{:url('mobile/Goods/category')}>"></a></div>
+    <!-- 搜索栏 -->
+    <div id="search_1" class="pos_rel">
+        <form method="post" action="<{:url('mobile/Goods/goodList')}>" onsubmit="return checkData();">
+        <!--<a href="#" class="menu pos_abs" id="menuBtn"></a>-->
+        <a href="<{:url('mobile/Goods/category')}>" class="menu pos_abs" id="category"></a>
+        <div class="search ml70">
+            <span class="txt"><input name="keyword" type="text" value="请输入搜索内容" id="input_txt" class="f20" onclick="this.value=''"></span>
+            <input type="submit" id="input_btn" value="搜索" class="pos_abs f32">
+        </div>
+        </form>
+    </div>
+</div>
+<!-- 频道导航 -->
+<div id="menu_nav" class="bgc_white txt_c">
+    <ul>
+        <{volist name="goodsCategory" id="vo"}>
+        <li><a href="<{:url('mobile/Goods/goodList',['cat'=>$vo.id])}>">{$vo.name}</a></li>
+        <{/volist}>
+    </ul>
+</div>
+<!-- 广告位 -->
+<div class="ad"><img src="/static/mobile/images/banner/banner.jpg" alt="广告位" title="广告位" class="full_img"></div>
+<!-- 导航 -->
+<ul id="nav" class="txt_c f32 mb30 clearfix">
+    <li <{eq name="type" value=""}> class="cur" <{/eq}>><a href="/">推荐</a></li>
+    <li <{eq name="type" value="sales"}> class="cur" <{/eq}>><a href="<{:url('/show/sales')}>">销量</a></li>
+    <li <{eq name="type" value="click"}> class="cur" <{/eq}>><a href="<{:url('/show/click')}>">人气</a></li>
+    <li <{eq name="type" value="new"}> class="cur" <{/eq}>><a href="<{:url('/show/new')}>" class="no_backg">新品</a></li>
+</ul>
+<!-- 产品 -->
+<{volist name="goodsList" id="vo"}>
+<div class="products">
+    <a href="<{:url('mobile/Goods/goodsInfo',['goods_id'=>$vo.goods_id])}>"><div class="pro_img"><img src="/static/mobile/images/none/pro_default.jpg" alt="产品图" title="产品图" class="full_img"></div></a>
+    <div class="pro_info">
+        <h3><a href="<{:url('mobile/Goods/goodsInfo',['goods_id'=>$vo.goods_id])}>"><{$vo.goods_name}></a></h3>
+        <h4><a href="<{:url('mobile/Goods/goodsInfo',['goods_id'=>$vo.goods_id])}>"><{$vo.goods_remark}></a></h4>
+        <div><span class="price">￥<{$vo.shop_price}></span><a href="#" class="more iconfont">&#xe621;</a></div>
+    </div>
+</div>
+<{/volist}>
+
+<script>
+    //导航
+//    fnNav("menuBtn","menu_nav",'head');
+    function checkData(){
+        input_text = document.getElementById("input_txt").value;
+        return (input_text != "" && input_text != '请输入搜索内容');
+    }
+</script>
+<{include file='common/_footer' /}>

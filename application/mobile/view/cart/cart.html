@@ -1,0 +1,280 @@
+<{include file="common/_header" /}>
+<body class="font">
+<!-- 头部 -->
+<div id="top" class="white pos_rel"><h2 class="txt_c f36 white_gray">购物车</h2><span class="top_back pos_abs f32"><a class="go_back white">返回</a></span><a class="top_set pos_abs" href="<{:url('mobile/Goods/category')}>"></a></div>
+<!-- 配送地址 -->
+<!--<div class="bs_address">配送至：<span>北京</span>&lt;!&ndash;<a href="#" class="edit">编辑</a>&ndash;&gt;</div>-->
+<!-- 商品列表 -->
+<div class="box_shadow_bot2 mb16 bgc_white bs_carts">
+	<!--<div class="bs_name bor_bot_gray"><span class="checkBox"></span>全选</div>-->
+	<div class="bs_name bor_bot_gray"></div>
+	<{volist name="list" id="vo"}>
+	<div class="bs_wapper pos_rel bor_bot_gray" id="cart_goods_<{$vo.id}>">
+		<{eq name="vo.goods.is_on_sale" value="1"}><span class="checkBox" data-cart_id="<{$vo.id}>" data-goods_id="<{$vo.goods_id}>" data-spec_key="<{$vo.spec_key}>"></span><{/eq}>
+		<div class="right_wrapper pos_rel">
+			<div class="img_wrapper"><a href="<{:url('mobile/Goods/goodsInfo',['goods_id'=>$vo.goods_id])}>"><img src="/static/mobile/images/none/pro_default.jpg" alt="图片" class="full_img"></a></div>
+			<div class="img_info">
+				<h3><{$vo.goods_name}></h3>
+				<div class="price red">￥<span><{$vo.goods_price}></span></div>
+				<div class="price"><span><{$vo.spec_key_name}></span></div>
+				<div class="bs_num">
+					<span class="btn-del fr" data-cart_id="<{$vo.id}>">删除</span>
+					<{eq name="vo.goods.is_on_sale" value="1"}>
+					<span class="btn_num">
+						<a href="javascript:void (0);" class="less"><img src="/static/mobile/images/btn_less.jpg"></a>
+						<span class="num" data-cart_id="<{$vo.id}>"><{$vo.goods_num}></span>
+						<a href="javascript:void (0);" class="add"><img src="/static/mobile/images/btn_add.jpg"></a>
+					</span>
+					<{else}>
+					<span>已下架</span>
+					<{/eq}>
+				</div>
+			</div>
+		</div>
+	</div>
+	<{/volist}>
+	<!--<div class="cont txt_r"><i class="gray_light mr20">已选择<span class="num">1</span>件商品</i>应付：<span class="red">￥<span class="subtotal">0.00</span></span></div>-->
+</div>
+<!-- 猜你喜欢 -->
+<!--<div class="loveBox">-->
+	<!--<h3 class="title">猜你喜欢</h3>-->
+	<!--<ul class="clearfix ul_love txt_c">-->
+		<!--<li><a href="content_products.html"><img src="/static/mobile/images/none/pro_default.jpg" class="full_img"><h5>Opera/娥佩兰</h5></a></li>-->
+		<!--<li><a href="content_products.html"><img src="/static/mobile/images/none/pro_default.jpg" class="full_img"><h5>Clarins/娇韵诗</h5></a></li>-->
+		<!--<li><a href="content_products.html"><img src="/static/mobile/images/none/pro_default.jpg" class="full_img"><h5>Maybelline</h5></a></li>-->
+	<!--</ul>-->
+<!--</div>-->
+<div class="m100"></div>
+<!-- 结算栏 -->
+<div class="billing bor_top_gray">
+	<div class="clearfix inner">
+		<div class="fl all_check"><span class="checkBox"></span>全选</div>
+		<div class="fr txt_r">已选<span class="red" id="item_num">0</span>件 共计：<span class="red">￥<span class="price" id="total_fee">0</span></span><a href="javascript:void (0);" class="billing_btn">结算</a></div>
+	</div>
+</div>
+<script type="text/javascript">
+     //数量加
+     function fnPlus(obj, numObj, lessObj){
+     	var n=$(obj).parent().find(numObj).eq(0).text();
+     	n++;
+     	$(obj).parent().find(numObj).eq(0).text(n);
+     	if(n>1){
+     		$(obj).siblings(lessObj).removeClass('failed');
+     	}
+     }
+
+     //数量减
+     function fnLess(obj, numObj){
+     	var n=$(obj).parent().find(numObj).eq(0).text();
+     	if(n>=2){
+     		if(n==2) $(obj).addClass('failed');
+     		n--;
+     		$(obj).parent().find(numObj).eq(0).text(n);
+     	}else{
+     		$(obj).addClass('failed');
+     		return false;
+     	}
+     	$(obj).parent().find(numObj).eq(0).text(n);
+     }
+
+	 //更新数据
+	function ajaxStatistics() {
+        cartList = {};
+        //绑定复选框效果
+        $(".bs_carts .checkBox").each(function (key) {
+            ths = $(this);
+            cart = {};
+            if(!!ths.hasClass('checked')) {
+                cart_id = ths.attr('data-cart_id');
+                goods_id = ths.attr('data-goods_id');
+                spec_key = ths.attr('data-spec_key');
+                goods_num = ths.siblings('.right_wrapper').find('.num').text();
+                cart.cart_id = cart_id;
+                cart.goods_id = goods_id;
+                cart.spec_key = spec_key;
+                cart.goods_num = goods_num;
+                cartList[key] = cart;
+            }
+        });
+        if(JSON.stringify(cartList) != "{}"){
+            $.ajax({
+                type: "POST",
+                url: "<{:url('mobile/Cart/ajaxUpdate')}>",
+                data: {'cart_list':cartList},
+                dataType: "json",
+                success: function(json){
+                    if(json.code == 0){
+                        $("#total_fee").text(json.data.totalFee);
+                        $("#item_num").text(json.data.totalItemNum);
+                    } else if (json.code == 9999){
+                        location.href = json.data.url;
+                    } else if(json.code > 0) {
+                        alert("添加失败:"+json.msg);
+                    } else {
+                        alert("操作失败，请稍后再试！");
+                    }
+                }
+            });
+		} else {
+            $("#total_fee").text(0);
+            $("#item_num").text(0);
+		}
+    }
+
+    //修改购物车物品数量
+    function ajaxNum(obj,type) {
+		ths = obj.siblings('.num');
+        cart_id = parseInt(ths.attr('data-cart_id'));
+        num = parseInt(ths.text());
+        //判断是否要更新请求
+        is_selected = $("#cart_goods_"+cart_id).find('.checkBox').hasClass('checked');
+		if( cart_id >1 && num >0){
+            $.ajax({
+                type: "POST",
+                url: "<{:url('mobile/Cart/ajaxNum')}>",
+                data: {'cart_id':cart_id,'num':num},
+                dataType: "json",
+                success: function(json){
+                    if(json.code == 0){
+						if(is_selected) ajaxStatistics();
+                    } else if (json.code == 9999){
+                        location.href = json.data.url;
+                    }  else if(json.code == 1) {
+                        alert("库存不足");
+                        ths.text(json.data.maxNum);
+                    } else if(json.code > 0) {
+                        alert("添加失败:"+json.msg);
+                    } else {
+                        alert("操作失败，请稍后再试！");
+                    }
+                }
+            });
+		}
+    }
+
+    //删除商品
+     function ajaxDel(ths) {
+         cart_id = parseInt(ths.attr('data-cart_id'));
+         if( cart_id >1){
+             $.ajax({
+                 type: "POST",
+                 url: "<{:url('mobile/Cart/ajaxDel')}>",
+                 data: {'cart_id':cart_id},
+                 dataType: "json",
+                 success: function(json){
+                     if(json.code == 0){
+                         ajaxStatistics();
+                     } else if (json.code == 9999){
+                         location.href = json.data.url;
+                     } else if(json.code > 0) {
+                         alert("添加失败:"+json.msg);
+                     } else {
+                         alert("操作失败，请稍后再试！");
+                     }
+                 }
+             });
+         }
+     }
+
+//页面加载后执行
+$(function(){
+    //绑定复选框效果
+    $(".bs_carts .checkBox").live('click',function () {
+		_this = $(this);
+        if(!_this.hasClass('checked')) {
+            _this.addClass('checked');
+        } else {
+            _this.removeClass('checked');
+            $(".all_check .checkBox").removeClass('checked');
+		}
+        ajaxStatistics();
+    });
+
+    //绑全选定
+    $(".all_check .checkBox").live('click',function () {
+        _this = $(this);
+        if(!_this.hasClass('checked')) {
+            //选中
+            _this.addClass('checked');
+            $.each($(".bs_carts .checkBox"),function () {
+                if(!$(this).hasClass('checked')) {
+                    $(this).addClass('checked');
+                }
+            });
+        } else {
+            _this.removeClass('checked');
+            $.each($(".bs_carts .checkBox"),function () {
+                if($(this).hasClass('checked')) {
+                    $(this).removeClass('checked');
+                }
+            });
+        }
+        ajaxStatistics();
+    });
+
+	$(".bs_carts").each(function(){
+		var _this=$(this);
+		_this.find('.add').bind('click', function() {
+			fnPlus($(this), '.num', '.less');
+            ajaxNum($(this),'add');
+		});
+		//判断当前“减”按钮是否可用
+		_this.find('.btn_num .num').each(function() {
+			var $this=$(this);
+			if(parseInt($this.text())==1){
+				$this.siblings('.less').addClass('failed');
+			}
+		});
+		_this.find('.less').bind('click', function() {
+			fnLess($(this), '.num');
+            ajaxNum($(this),'less');
+		});
+	});
+
+	//删除商品
+	$('.bs_num .btn-del').bind('click',function(){
+	    if(!window.confirm('确认要删除?')) return false;
+		var $this=$(this);
+        ajaxDel($this);
+		if($this.parentsUntil('.bs_carts').parent().children('.bs_wapper').length>1){
+			$this.parentsUntil('.bs_carts').remove();
+		}else{
+			$this.parentsUntil('.bs_carts').parent().remove();
+		}
+	});
+
+	
+	$(".billing_btn").live('click',function () {
+        cartList = {};
+        //绑定复选框效果
+        $(".bs_carts .checkBox").each(function (key) {
+            ths = $(this);
+            cart = {};
+            if(!!ths.hasClass('checked')) {
+                cart_id = ths.attr('data-cart_id');
+                goods_id = ths.attr('data-goods_id');
+                spec_key = ths.attr('data-spec_key');
+                goods_num = ths.siblings('.right_wrapper').find('.num').text();
+                cart.cart_id = cart_id;
+                cart.goods_id = goods_id;
+                cart.spec_key = spec_key;
+                cart.goods_num = goods_num;
+                cartList[key] = cart;
+            }
+        });
+        if(JSON.stringify(cartList) != "{}"){
+            location.href = "<{:url('mobile/Cart/analyse',['from'=>'cart'])}>";
+        } else {
+            alert('请选择商品！');
+        }
+    });
+
+    //返回
+    $(".go_back").live('click',function () {
+        window.history.go(-1);
+    });
+
+});
+</script>
+</body>
+</html>
